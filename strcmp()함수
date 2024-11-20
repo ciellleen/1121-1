@@ -1,0 +1,61 @@
+# 형식
+
+```c
+#include <string.h>
+int strcmp(const char *string1, const char *string2);
+```
+
+# 설명
+
+strcmp() 함수는 string 1 및 string 2를 비교함.
+
+함수는 null로 끝나는 스트링에서 작동함.
+
+함수에 대한 스트링 인수는 스트링 끝을 나타내는 널 문자(\0)를 포함해야 함.
+
+# 리턴값
+
+strcmp() 함수는 다음과 같이 두 스트링 사이의 관계를 나타내는 값을 리턴함.
+
+<aside>
+💡
+
+strcmp()의 리턴값
+
+| 값 | 의미 |
+| --- | --- |
+| 0보다 작음 | string1이 string2보다 작음 |
+| 0 | string1이 string2와 같음 |
+| 0보다 큼 | string1이 string2보다 큼 |
+</aside>
+
+# 예
+
+이 예는 strcmp()를 사용해 main()에 전달되는 두 개의 스트링을 비교함.
+
+```c
+#include <stdio.h>
+#include <string.h>
+ 
+int main(int argc, char ** argv)
+{
+  int result;
+ 
+  if ( argc != 3 )
+  {
+    printf( "Usage: %s string1 string2\n", argv[0] );
+  }
+  else
+  {
+ 
+    result = strcmp( argv[1], argv[2] );
+ 
+    if ( result == 0 )
+      printf( "\"%s\" is identical to \"%s\"\n", argv[1], argv[2] );
+    else if (result < 0)
+      printf( "\"%s\" is less than \"%s\"\n", argv[1], argv[2] );
+    else
+      printf( "\"%s\" is greater than \"%s\"\n", argv[1], argv[2] );
+  }
+}
+```
