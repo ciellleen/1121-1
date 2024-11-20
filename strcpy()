@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{
+    char a[20] = "the real programmer";
+    char b[20] = "bomin son";
+
+    strcpy(a, b);
+
+    printf("복사된 문자열: %s\n문자열 길이: %ld\n", a, strlen(a));
+
+    return 0;
+}
