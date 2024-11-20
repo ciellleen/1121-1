@@ -1,0 +1,122 @@
+# 문자열 처리를 위한 함수 종류
+
+C에서의 문자열 함수는 <string.h> 라이브러리에 포함돼 있음.
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/43f4c680-a7ab-4f2d-b233-d37ec40472ce/9e78d3fd-4ac5-41ff-a1c5-7a8f50bd4925/image.png)
+
+## strlen()
+
+문자열의 길이를 반
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{  
+    char a[20] = "the real programmer";
+    printf("문자열의 길이: %ld\n", strlen(a));
+}
+```
+
+<aside>
+💡
+
+문자열의 길이: 19
+
+</aside>
+
+## strcmp()
+
+문자열 1이 문자열 2보다 사전적으로 앞에 있으면 -1, 뒤에 있으면 1 반환
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{  
+    char a[20] = "the real programmer";
+    char b[20] = "eunjin lee";
+    printf("두 배열의 사전순 비교: %d\n", strcmp(a, b));
+}
+```
+
+<aside>
+💡
+
+두 배열의 사전순 비교: 15
+
+→ 문자열이 같지 않을 경우에 -1, 1이 아닐 수도 있음. 양수, 음수, 0을 반환한다고 하는 것이 정확함. 여기선 t보다 e가 앞에 나왔으므로 양수가 출력되는 것이 맞음.
+
+</aside>
+
+## strcpy()
+
+문자열을 복사하는 함수
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{  
+    char a[20] = "the real programmer";
+    char b[20] = "eunjin lee";
+    strcpy(a, b);
+    printf("복사된 문자열: %s \n", a);
+}
+```
+
+a 배열을 b의 배열로 복사해서 집어넣는 로직. 여기에서 a를 출력해보면 "eunjin lee"가 나옴.
+
+## strcat()
+
+뒤에 있는 문자열을 앞에 있는 문자열에 합침. (문자열 1에 문자열 2 더함)
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{  
+    char a[30] = "the real programmer ";
+    char b[20] = "eunjin";
+    strcat(a, b);
+    printf("합쳐진 결과 문자열: %s \n", a);
+}
+```
+
+<aside>
+💡
+
+합쳐진 결과 문자열: the real programmer eunjin
+
+</aside>
+
+## strstr()
+
+문자열 1에 문자열 2가 어떻게 포함되어 있는지 반
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{  
+    char a[20] = "the real programmer";
+    char b[20] = "real";
+    printf("찾은 문자열: %s \n", strstr(a, b));
+}
+```
+
+<aside>
+💡
+
+찾은 문자열: real programmer
+
+</aside>
+
+긴 문자열에서 짧은 문자열을 찾아 위치를 반환. 
+
+찾은 주소 값 자체를 반환하기 때문에 단순히 출력만 하면 찾은 이후의 모든 문자열이 반환됨.
