@@ -1,0 +1,44 @@
+# 형식
+
+```c
+#include <string.h>
+char *strcat(char *string1, const char *string2);
+```
+
+# 설명
+
+strcat() 함수는 string2를 string1에 연결하고 null 문자로 결과 스트링을 종료함.
+
+strcat()함수는 null로 끝나는 스트링에서 작동함.
+
+함수에 대한 스트링 인수는 스트링 끝을 나타내는 null 문자(\0)을 포함해야 함.
+
+길이 검사는 수행하지 않음.
+
+string2가 리터럴 스트링일 수 있지만 string1 값에 대한 리터럴 스트링을 사용해서는 안됨.
+
+string1의 기억장치가 string2의 기억 장치와 겹치면 작동은 정의되지 않음.
+
+# 리턴값
+
+strcat() 함수는 연결된 스트링에 대한 포인터를 리턴함(*string1*).
+
+# 예
+
+```c
+#include <stdio.h>
+#include <string.h>
+ 
+#define SIZE 40
+ 
+ 
+int main(void)
+{
+  char buffer1[SIZE] = "computer";
+  char * ptr;
+ 
+  ptr = strcat( buffer1, " program" );
+  printf( "buffer1 = %s\n", buffer1 );
+ 
+}
+```
